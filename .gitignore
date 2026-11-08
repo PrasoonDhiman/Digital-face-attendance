@@ -1,0 +1,40 @@
+@'
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Face dataset and personal images
+dataset/
+*_raw_image.jpg
+*_rgb_image.jpg
+*_detected_face.jpg
+*_cropped_face.jpg
+*_resized_face.jpg
+*_normalized_face.jpg
+raw_face.jpg
+
+# Database
+*.db
+*.sqlite3
+
+# Environment secrets
+.env
+.env.*
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# Temporary files
+tempCodeRunnerFile*
+train_status.json
+
+# Sample data
+sample_feature_values*.csv
+
+# IDE
+.vscode/
+.idea/
+'@ | Set-Content -Encoding utf8 .gitignoregit check-ignore -v --no-index dataset/20 __pycache__/ attendance.db 1_raw_image.jpg
