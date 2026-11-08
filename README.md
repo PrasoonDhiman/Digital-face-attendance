@@ -4,9 +4,9 @@ An AI-powered **Digital Facial Recognition Attendance System** developed using P
 
 The project aims to reduce manual attendance efforts, improve efficiency, minimize proxy attendance, and provide an organized platform for student attendance management.
 
-## 📸 Project Preview
 
-## 📸 Project Preview
+
+##  Project Preview
 
 ![Digital Face Attendance Dashboard](image.png)
 
@@ -65,6 +65,7 @@ Demonstrates the different stages of image preprocessing, including:
 - Resized Face
 - Normalized Face
 - Extracted Feature Representation
+  ![Digital Face Attendance Dashboard](preprocessing_steps_figure3.png)
 
 ## 📈 Performance Metrics
 
