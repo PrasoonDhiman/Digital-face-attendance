@@ -1,48 +1,219 @@
-# Digital-Facial-Recognisation-Attendance-System
+# Digital Facial Recognition Attendance System
 
-<img width="1919" height="993" alt="image" src="https://github.com/user-attachments/assets/e5b58429-70fa-4230-8d5c-47fc37f210e5" />
+An AI-powered **Digital Facial Recognition Attendance System** developed using Python, Flask, OpenCV, MediaPipe, and Random Forest Classifier. The system automates student attendance by detecting and recognizing faces through a camera and recording attendance in an SQLite database.
 
-The Digital Facial Recognition Attendance System is an advanced, automated system designed to track and manage attendance efficiently using facial recognition technology 🙂🔍. Unlike traditional methods (manual registers 📝 or RFID cards 💳), this system uses computer vision 🤖 and AI 🧠 to identify individuals in real-time ⏱️, ensuring accuracy ✅, security 🔐, and time-saving management ⏳.
+The project aims to reduce manual attendance efforts, improve efficiency, minimize proxy attendance, and provide an organized platform for student attendance management.
 
-✨ Key Features
+## 📸 Project Preview
 
-Facial Recognition 🙂🔍: Utilizes AI and deep learning 🧠📊 to detect and recognize faces in real-time. Each person is uniquely identified to prevent proxy attendance 🚫.
+![Digital Facial Recognition Attendance System](https://github.com/user-attachments/assets/e5b58429-70fa-4230-8d5c-47fc37f210e5)
 
-Automated Attendance Logging 🖥️✅: Marks attendance automatically, eliminating manual entry errors.
+## ✨ Key Features
 
-Database Integration 💾📂: Stores records securely (SQLite/MySQL) for easy retrieval, analysis 📈, and reporting.
+- **Face Detection:** Uses MediaPipe Face Detection to locate faces from camera images.
+- **Image Preprocessing:** Performs face cropping, grayscale conversion, resizing, normalization, and feature extraction.
+- **Machine Learning-Based Recognition:** Uses Random Forest Classifier to recognize registered students based on extracted facial features.
+- **Automated Attendance:** Identifies students and records their attendance automatically.
+- **Student Management:** Allows administrators to register and manage student information.
+- **Attendance Records:** Maintains attendance information with timestamps.
+- **Attendance Reports:** Supports daily, weekly, and monthly attendance monitoring.
+- **Data Visualization:** Displays attendance statistics and analytical graphs through the dashboard.
+- **CSV Export:** Allows attendance records to be downloaded for further analysis.
 
-User Management 👤⚙️: Admins can add, update, or remove users along with facial data.
+## 🧠 Methodology
 
-Reporting & Analytics 📊🗂️: Generates daily, weekly, or monthly attendance reports and visual graphs for monitoring trends.
+The system follows a machine learning-based facial recognition pipeline.
 
-Security & Accuracy 🔐🎯: Works even in varied lighting 🌙💡 and with masks 😷 or glasses 🕶️.
+1. **Image Acquisition:** Captures student facial images through a camera.
+2. **Face Detection:** MediaPipe detects the face region from the captured image.
+3. **Face Cropping:** Extracts the detected facial region.
+4. **Preprocessing:** Converts the face into grayscale and resizes it to 32 × 32 pixels.
+5. **Feature Extraction:** Flattens the processed image into a numerical feature vector and normalizes pixel values.
+6. **Model Training:** Uses Random Forest Classifier to learn facial patterns from registered student images.
+7. **Face Recognition:** Predicts the identity of a student using the trained classification model.
+8. **Attendance Marking:** Records the recognized student's attendance in the SQLite database.
 
-GUI Dashboard 🖥️📋: Interactive dashboard for admins/teachers to manage attendance and view stats.
+## 📊 Model Evaluation and Performance Analysis
 
-Optional Notifications ✉️📱: Can send email/SMS alerts about attendance status.
+To evaluate the performance of the Random Forest Classifier, multiple machine learning evaluation techniques and graphical visualizations are included.
 
-📍 Applications
+### 1. Confusion Matrix
 
-🏫 Schools, colleges, and universities
-🏢 Corporate offices for employee tracking
-🎓 Workshops, seminars, and training programs
+Evaluates the classification performance by comparing actual student labels with predicted student labels. It helps identify correctly classified students and misclassification between different classes.
 
-🛠️ Technology Stack
+### 2. Receiver Operating Characteristic (ROC) Curve
 
-Programming Language: Python 🐍
+Visualizes the relationship between the True Positive Rate (TPR) and False Positive Rate (FPR) at different classification thresholds.
 
-Libraries/Frameworks: OpenCV 📷, Mediapipe, RandomForestClassifier 🧩, Face Recognition 🙂🔍, Flask 🌐
+### 3. Precision-Recall Curve
 
-Database: SQLite3 💾
+Analyzes the trade-off between precision and recall and helps evaluate the model's ability to correctly identify registered students.
 
-GUI: HTML| CSS | javascript | Web-based dashboard 🖥️
+### 4. Out-of-Bag (OOB) Error Curve
 
-Optional: Email/SMS APIs ✉️📱
+Measures the classification error using out-of-bag samples during Random Forest training. It helps analyze model performance as the number of trees increases.
 
-💡 Benefits
+### 5. Preprocessing Visualization
 
-✅ Reduces manual effort & paperwork
-✅ Ensures accuracy & prevents fraudulent attendance
-✅ Provides real-time data & analytics 📈
-✅ Scalable for institutions of any size 🌍
+Demonstrates the different stages of image preprocessing, including:
+- Original RGB Image
+- Grayscale Image
+- Detected Face
+- Cropped Face
+- Resized Face
+- Normalized Face
+- Extracted Feature Representation
+
+## 📈 Performance Metrics
+
+The model is evaluated using the following metrics:
+
+- Accuracy
+- Precision
+- Recall
+- F1-Score
+- Confusion Matrix
+- ROC Analysis
+- Precision-Recall Analysis
+- Out-of-Bag Error Analysis
+
+These metrics provide an overall understanding of the classifier's performance and its ability to distinguish between registered student identities.
+
+## 🛠️ Technology Stack
+
+| Category | Technologies |
+|---|---|
+| Programming Language | Python |
+| Backend Framework | Flask |
+| Face Detection | MediaPipe |
+| Image Processing | OpenCV |
+| Machine Learning | Scikit-learn |
+| Classification Algorithm | Random Forest Classifier |
+| Numerical Processing | NumPy |
+| Database | SQLite3 |
+| Frontend | HTML, CSS, JavaScript |
+| Data Visualization | Matplotlib |
+| Model Storage | Pickle |
+
+## 🏗️ System Architecture
+
+```text
+       Student Registration
+               |
+               v
+        Image Acquisition
+               |
+               v
+        Face Detection
+          (MediaPipe)
+               |
+               v
+        Face Preprocessing
+               |
+               v
+        Feature Extraction
+               |
+               v
+       Random Forest Model
+               |
+               v
+        Face Recognition
+               |
+               v
+       Attendance Recording
+               |
+               v
+        SQLite Database
+               |
+               v
+       Attendance Dashboard
+               |
+               v
+      Reports and Analytics
+```
+
+## 📁 Project Modules
+
+| Module | Description |
+|---|---|
+| `app.py` | Flask application and backend routes |
+| `model.py` | Face preprocessing, feature extraction, and machine learning pipeline |
+| `templates/` | HTML pages and dashboard interfaces |
+| `static/` | CSS, JavaScript, and frontend resources |
+| `dataset/` | Student facial image dataset (kept locally, not published) |
+| `attendance.db` | SQLite attendance database (generated locally) |
+| `model.pkl` | Serialized trained classification model, if used by the application |
+| `scaler.pkl` | Saved preprocessing scaler, if required |
+
+## ⚙️ Installation and Setup
+
+### Prerequisites
+
+- Python 3.10 or compatible version
+- pip
+- Git
+- Webcam or camera
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/PrasoonDhiman/Digital-face-attendance.git
+```
+
+### 2. Navigate to the Project Directory
+
+```bash
+cd Digital-face-attendance
+```
+
+### 3. Create a Virtual Environment
+
+```bash
+python -m venv venv
+```
+
+Activate it on Windows:
+
+```bash
+venv\Scripts\activate
+```
+
+### 4. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 5. Run the Application
+
+```bash
+python app.py
+```
+
+### 6. Open in Browser
+
+```text
+http://127.0.0.1:5000
+```
+
+## 🎯 Applications
+
+- Schools and Colleges
+- Universities and Educational Institutions
+- Training Centers
+- Workshops and Seminars
+- Institutional Attendance Management
+
+## 🚀 Future Enhancements
+
+- Face anti-spoofing and liveness detection.
+- SMS and WhatsApp attendance notifications.
+- Teacher and administrator authentication.
+- Class-wise and section-wise attendance management.
+- Improved recognition using advanced feature extraction techniques.
+- Raspberry Pi and edge-device deployment.
+- Enhanced model optimization and performance evaluation.
+
+## 🔐 Privacy and Security
+
+Student facial images and personal
