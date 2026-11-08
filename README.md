@@ -6,7 +6,9 @@ The project aims to reduce manual attendance efforts, improve efficiency, minimi
 
 ## 📸 Project Preview
 
-![Digital Facial Recognition Attendance System](https://github.com/user-attachments/assets/e5b58429-70fa-4230-8d5c-47fc37f210e5)
+## 📸 Project Preview
+
+![Digital Face Attendance Dashboard](image.png)
 
 ## ✨ Key Features
 
